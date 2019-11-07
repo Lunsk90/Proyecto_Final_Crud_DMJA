@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Proyecto_Final_Crud_DMJA</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Nuevo Registro</string>
+    <string name="listarticulos">Lista Spinner</string>
+    <string name="listarticulos1">Lista ListView</string>
 </resources>

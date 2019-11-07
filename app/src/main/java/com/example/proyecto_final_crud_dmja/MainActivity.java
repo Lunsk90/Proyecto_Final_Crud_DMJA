@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
-        toolbar.setSubtitle("CRUD SQLite-2019");
+        toolbar.setSubtitle("Proyecto CRUD SQLite-2019");
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.mycolor));
-        toolbar.setTitle("Prof. Gámez");
+        toolbar.setTitle("DMJA");
         setSupportActionBar(toolbar);
 
         //y esto para pantalla completa (oculta incluso la barra de estado)
