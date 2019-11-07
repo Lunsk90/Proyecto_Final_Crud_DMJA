@@ -29,8 +29,24 @@
         android:spinnerMode="dropdown"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:background="@drawable/estilos3spinner"
+        android:background="@drawable/estilospinner"
         android:paddingLeft="15dp"
         />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp">
+
+    <TextView
+        android:id="@+id/tv_cod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Código: "
+        android:textColor="#3F51B5"
+        android:textSize="18dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        />
+    </RelativeLayout>
 </LinearLayout>
