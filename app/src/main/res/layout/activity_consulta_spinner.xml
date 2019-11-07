@@ -20,5 +20,17 @@
         android:textColor="#3F51B5"
         android:fontFamily=""
         />
+    <Spinner
+        android:id="@+id/sp_options"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:drawSelectorOnTop="true"
+        android:spinnerMode="dropdown"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/estilos3spinner"
+        android:paddingLeft="15dp"
+        />
 
 </LinearLayout>
