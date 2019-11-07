@@ -48,5 +48,16 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         />
+        <TextView
+            android:id="@+id/tv_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción: "
+            android:textColor="#3F51B5"
+            android:textSize="18dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="25dp"
+            />
     </RelativeLayout>
 </LinearLayout>
