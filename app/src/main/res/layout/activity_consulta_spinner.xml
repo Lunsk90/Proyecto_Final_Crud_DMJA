@@ -8,4 +8,17 @@
     android:background="#F0EDED"
     tools:context=".ConsultaSpinner">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Seleccione una opción"
+        android:layout_marginTop="25dp"
+        android:textAlignment="gravity"
+        android:textSize="18dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="#AD0505"
+        android:fontFamily="cursive"
+        />
+
 </LinearLayout>
