@@ -36,11 +36,6 @@ public class MainActivity extends AppCompatActivity {
     Modal ventanas = new Modal();
     ConexionSQLite conexion = new ConexionSQLite(this);
     Dto datos = new Dto();
-<<<<<<< HEAD
-    AlertDialog.Builder dialogo;
-
-=======
->>>>>>> 26fc7759d51ff52e50ed1193ec42d3898a6da2fd
     AlertDialog.Builder dialogo;
 
 
@@ -69,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
         //para las demas cosas, se reenvia el evento al listener habitual
         return super.onKeyDown(keyCode, event);
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
