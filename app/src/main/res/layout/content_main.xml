@@ -43,76 +43,52 @@
                 android:layout_height="wrap_content"
                 android:hint="Ingrese el código"
                 android:inputType="number"
-                android:layout_marginTop="10dp"
-                android:textColor="#fff"
                 android:background="@drawable/text"
-                android:shadowColor="#A82A2A"
-                android:shadowDx="-8"
-                android:shadowDy="-9"
                 android:shadowRadius="5"
-                android:paddingLeft="25dp"
+                android:paddingLeft="10dp"
                 android:drawableStart="@drawable/ic_hola"
-                android:drawablePadding="5dp"
+                android:drawablePadding="3dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:drawableLeft="@drawable/ic_hola" />
 
-            <!--
-            <EditText
-                android:id="@+id/et_codigo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="12dp"
-                android:background="@drawable/estiloedittext"
-                android:drawableStart="@drawable/ic_input1"
-                android:drawablePadding="5dp"
-                android:hint="Ingrese el código del artículo"
-                android:inputType="number"
-                android:paddingLeft="25dp" />
-                -->
+
 
             <EditText
+
                 android:id="@+id/et_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ingrese la descripción del artículo"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/text"
-                android:paddingLeft="25dp"
-                android:drawableStart="@drawable/ic_descripcion"
-                android:drawablePadding="5dp"
-                />
+                android:drawableStart="@drawable/ic_description"
+                android:drawablePadding="3dp"
+                android:hint="Ingrese descripción artículo"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:shadowRadius="5"
+                android:drawableLeft="@drawable/ic_description" />
+
 
             <EditText
+
                 android:id="@+id/et_precio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Ingrese el precio del artículo"
-                android:layout_marginRight="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="20dp"
+                android:shadowRadius="5"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:inputType="numberDecimal"
                 android:background="@drawable/text"
-                android:paddingLeft="25dp"
+                android:paddingLeft="10dp"
                 android:drawableStart="@drawable/ic_precio"
-                android:drawablePadding="5dp"
+                android:drawablePadding="3dp"
                 android:drawableLeft="@drawable/ic_precio" />
-
-            <!--<TextView
-                android:id="@+id/tv_resultado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="resultado"
-                android:layout_marginTop="25dp"
-                android:textColor="#fff"
-                android:textAlignment="center"
-                android:textSize="20dp"
-
-                />-->
 
             <Button
                 android:id="@+id/btn_guardar"
@@ -120,60 +96,36 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="30dp"
-                android:text="Guardar"
-                android:textColor="#fff"
-                android:onClick="alta"
+                android:layout_marginTop="5dp"
+                android:text="Guardar "
+                android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
                 android:shadowDx="-3"
                 android:shadowDy="0"
                 android:shadowRadius="8"
-                android:drawableRight="@drawable/ic_save"
-                android:paddingRight="100dp"
-                android:drawablePadding="-140dp"
+                android:drawableLeft="@drawable/ic_save"
+                android:paddingLeft="30dp"
+                android:drawablePadding="-40dp"/>
+
+            <Button
+                android:id="@+id/btn_consultaCodigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:text="Consultar por código"
+                android:textColor="#0E0D0D"
+                android:background="@drawable/button"
+                android:shadowColor="#2314A8"
+                android:shadowDx="-3"
+                android:shadowDy="0"
+                android:shadowRadius="8"
+                android:drawableLeft="@drawable/ic_buscar"
+                android:paddingLeft="30dp"
+                android:drawablePadding="-40dp"
                 />
-
-            <Button
-                android:id="@+id/btnescaner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:text="Consultar por código"
-                android:textColor="#fff"
-                android:onClick="consultaporcodigo"
-                android:background="@drawable/button"
-                android:shadowColor="#2314A8"
-                android:shadowDx="-3"
-                android:shadowDy="0"
-                android:shadowRadius="8"
-                android:drawableStart="@drawable/ic_scanner"
-                android:paddingLeft="80dp"
-                android:drawablePadding="-40dp"
-                android:drawableLeft="@drawable/ic_scanner" />
-
-            <Button
-                android:id="@+id/btn_consultarCodigo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:text="Consultar por código"
-                android:textColor="#fff"
-                android:onClick="consultaporcodigo"
-                android:background="@drawable/button"
-                android:shadowColor="#2314A8"
-                android:shadowDx="-3"
-                android:shadowDy="0"
-                android:shadowRadius="8"
-                android:drawableStart="@drawable/ic_search"
-                android:paddingLeft="80dp"
-                android:drawablePadding="-40dp"
-                android:drawableLeft="@drawable/ic_search" />
-
             <Button
                 android:id="@+id/btn_consultaDescripcion"
                 android:layout_width="match_parent"
@@ -181,14 +133,18 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:text="Consultar por descrición"
-                android:textColor="#fff"
-                android:onClick="consultapordescripcion"
+                android:text=" Consultar por descripción"
+                android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
                 android:shadowDx="-3"
                 android:shadowDy="0"
                 android:shadowRadius="8"
+                android:drawableLeft="@drawable/ic_descripcion"
+                android:paddingLeft="30dp"
+                android:drawablePadding="-40dp"
+
+
                 />
 
             <Button
@@ -198,14 +154,16 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:text="Borrar"
-                android:textColor="#fff"
-                android:onClick="bajaporcodigo"
+                android:text="Eliminar por código"
+                android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
                 android:shadowDx="-3"
                 android:shadowDy="0"
                 android:shadowRadius="8"
+                android:drawableLeft="@drawable/ic_delete"
+                android:paddingLeft="30dp"
+                android:drawablePadding="-40dp"
                 />
 
             <Button
@@ -215,17 +173,20 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
                 android:text="Editar"
-                android:textColor="#fff"
-                android:onClick="modificacion"
+                android:textColor="#0E0D0D"
                 android:background="@drawable/button"
-                android:shadowColor="#A82A2A"
-                android:shadowDx="20"
-                android:shadowDy="-9"
-                android:shadowRadius="5"
+                android:shadowColor="#2314A8"
+                android:shadowDx="-3"
+                android:shadowDy="0"
+                android:shadowRadius="8"
+                android:drawableLeft="@drawable/ic_edit2"
+                android:paddingLeft="30dp"
+                android:drawablePadding="-40dp"
+                android:layout_marginBottom="20dp"
 
                 />
+
 
         </LinearLayout>
     </ScrollView>

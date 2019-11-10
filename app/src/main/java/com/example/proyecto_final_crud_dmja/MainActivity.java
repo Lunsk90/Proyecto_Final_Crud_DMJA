@@ -25,13 +25,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
     private EditText et_codigo, et_descripcion, et_precio;
-    private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
+    private Button btn_guardar, btn_consultarCodigo, btn_consultarDescripcion, btn_eliminar, btn_actualizar;
     private TextView tv_resultado;;
 
-    String senal = "";
-    String codigo = "";
-    String descripcion = "";
-    String precio = "";
+    boolean inputEt=false;
+    boolean inputEd=false;
+    boolean input1=false;
+    int resultadoInsert=0;
 
     MantenimientoMySQL manto = new MantenimientoMySQL();
     Dto datos = new Dto();
@@ -190,17 +190,7 @@ public class MainActivity extends AppCompatActivity{
 
                     limpiarDatos();
                     et_codigo.requestFocus();
-                    /*
-                    if(estadoEliminar){
-                        Toast.makeText(MainActivity.this, "Registro Eliminado correctamente.", Toast.LENGTH_SHORT).show();
-                        limpiarDatos();
-                    }else{
-                         Toast toast = Toast.makeText(getApplicationContext(), "--> Nothing." +
-                                        "\nNo hay información que eliminar.", Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER, 0, 0);
-                                toast.show();
-                        limpiarDatos();
-                    }*/
+
                 }
             }
         });
