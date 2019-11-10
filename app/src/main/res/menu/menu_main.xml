@@ -23,6 +23,11 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/action_acercade"
+        android:orderInCategory="4"
+        android:title="acerca de"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_salir"
         android:icon="@drawable/ic_close"
         android:orderInCategory="3"
