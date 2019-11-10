@@ -135,6 +135,26 @@
                 />
 
             <Button
+                android:id="@+id/btn_scanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:text="Consultar por código"
+                android:textColor="#fff"
+                android:onClick="consultaporcodigo"
+                android:background="@drawable/button"
+                android:shadowColor="#2314A8"
+                android:shadowDx="-3"
+                android:shadowDy="0"
+                android:shadowRadius="8"
+                android:drawableStart="@drawable/ic_scanner"
+                android:paddingLeft="80dp"
+                android:drawablePadding="-40dp"
+                android:drawableLeft="@drawable/ic_scanner" />
+
+            <Button
                 android:id="@+id/btn_consultar1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
