@@ -2,13 +2,13 @@
 PROYECTO FINAL CRUD-ANDROID-2019
 Este es nuestro proyecto final 2019 integrado por:
 
-Diana Berríos
+Berríos Diana.
 
-Marlyn Campos
+Campos Marlyn.
 
-Julissa Rivas
+Rivas Julissa.
 
-Alcides Ramírez
+Ramírez Alcides.
 
 basado en un CRUD,
 conexion a base de datos MYSQL
