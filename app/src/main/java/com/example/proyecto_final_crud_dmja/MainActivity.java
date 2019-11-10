@@ -20,17 +20,13 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
-
     private EditText et_codigo, et_descripcion, et_precio;
-    private Button btn_guardar, btn_consultaCodigo, btn_consultaDescripcion, btn_eliminar, btn_actualizar;
-
-    boolean inputEt=false;
-    boolean inputEd=false;
-    boolean input1=false;
-    int resultadoInsert=0;
+    private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
+    private TextView tv_resultado;;
 
     String senal = "";
     String codigo = "";
