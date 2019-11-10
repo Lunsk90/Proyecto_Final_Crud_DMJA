@@ -9,24 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Acercade"></activity>
+        <activity android:name=".ListViewArticulos"></activity>
+        <activity android:name=".Acercade" />
         <activity android:name=".ConsultaSpinner" />
         <activity android:name=".Modal" />
         <activity android:name=".Login" />
         <activity android:name=".SplashScreen" />
-
-
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
