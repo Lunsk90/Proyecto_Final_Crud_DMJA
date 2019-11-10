@@ -107,6 +107,10 @@ public class MainActivity extends AppCompatActivity {
         btn_consultar2 = (Button) findViewById(R.id.btn_consultar2);
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
+        btnescaner=(Button)findViewById(R.id.btnescaner);
+        edtcodigo=(EditText)findViewById(R.id.edtcodigo);
+
+        btnescaner.setOnClickListener(Scnr);
         // tv_resultado = (TextView) findViewById(R.id.tv_resultado);
 
         String senal = "";
