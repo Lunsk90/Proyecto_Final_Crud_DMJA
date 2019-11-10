@@ -1,7 +1,9 @@
 package com.example.proyecto_final_crud_dmja;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,25 +20,31 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private EditText et_codigo, et_descripcion, et_precio;
-    private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar,btnescaner;
-    private TextView tv_resultado;
+    private Button btn_guardar, btn_consultaCodigo, btn_consultaDescripcion, btn_eliminar, btn_actualizar;
 
     boolean inputEt=false;
     boolean inputEd=false;
     boolean input1=false;
     int resultadoInsert=0;
 
-    Modal ventanas = new Modal();
-    ConexionSQLite conexion = new ConexionSQLite(this);
-    Dto datos = new Dto();
-    AlertDialog.Builder dialogo;
+    String senal = "";
+    String codigo = "";
+    String descripcion = "";
+    String precio = "";
 
+    MantenimientoMySQL manto = new MantenimientoMySQL();
+    Dto datos = new Dto();
+
+    //Banderas para saber estados de métodos del CRUD.
+    boolean estadoGuarda = false;
+    boolean estadoEliminar = false;
+
+    AlertDialog.Builder dialogo;
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -59,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,95 +76,235 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
-        toolbar.setSubtitle("Proyecto CRUD SQLite-2019");
+        toolbar.setSubtitle("CRUD MySQLD");
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.mycolor));
-        toolbar.setTitle("DMJA");
+        toolbar.setTitle("diana");
         setSupportActionBar(toolbar);
 
-        //y esto para pantalla completa (oculta incluso la barra de estado)
+        ///y esto para pantalla completa (oculta incluso la barra de estado)
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                confirmacion();
-            }
-        });
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //         .setAction("Action", null).show();
-                ventanas.Search(MainActivity.this);
-            }
-        });
 
         et_codigo = (EditText) findViewById(R.id.et_codigo);
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
         et_precio = (EditText) findViewById(R.id.et_precio);
         btn_guardar = (Button) findViewById(R.id.btn_guardar);
-        btn_consultar1 = (Button) findViewById(R.id.btn_consultar1);
-        btn_consultar2 = (Button) findViewById(R.id.btn_consultar2);
+        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultaCodigo);
+        btn_consultaDescripcion = (Button) findViewById(R.id.btn_consultaDescripcion);
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
-        btnescaner=(Button)findViewById(R.id.btnescaner);
-        edtcodigo=(EditText)findViewById(R.id.edtcodigo);
+        //tv_resultado = (TextView) findViewById(R.id.tv_resultado);
 
-        btnescaner.setOnClickListener(Scnr);
-        // tv_resultado = (TextView) findViewById(R.id.tv_resultado);
 
-        String senal = "";
-        String codigo = "";
-        String descripcion = "";
-        String precio = "";
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogConfirmacion();
+            }
+        });
 
+
+        /******************************************************************/
+        //BLOQUE DE CÓDIGO PARA MOSTRAR DATOS DE LA BUSQUEDA//
         try {
             Intent intent = getIntent();
             Bundle bundle = intent.getExtras();
             if (bundle != null) {
-                codigo = bundle.getString("codigo");
+
                 senal = bundle.getString("senal");
+                codigo = bundle.getString("codigo");
                 descripcion = bundle.getString("descripcion");
                 precio = bundle.getString("precio");
                 if (senal.equals("1")) {
                     et_codigo.setText(codigo);
                     et_descripcion.setText(descripcion);
                     et_precio.setText(precio);
-                    finish();
+                    //finish();
+                }else if(senal.equals("2")){
+
                 }
             }
         }catch (Exception e){
 
         }
+        /******************************************************************/
+
+
+
+        btn_guardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(et_codigo.getText().toString().length()==0){
+                    et_codigo.setError("Campo obligatorio");
+                    inputEt = false;
+                }else {
+                    inputEt=true;
+                }
+                if(et_descripcion.getText().toString().length()==0){
+                    et_descripcion.setError("Campo obligatorio");
+                    inputEd = false;
+                }else {
+                    inputEd=true;
+                }
+                if(et_precio.getText().toString().length()==0){
+                    et_precio.setError("Campo obligatorio");
+                    input1 = false;
+                }else {
+                    input1=true;
+                }
+
+                if (inputEt && inputEd && input1){
+                    String codigo = et_codigo.getText().toString();
+                    String descripcion = et_descripcion.getText().toString();
+                    String precio = et_precio.getText().toString();
+                    manto.guardar(MainActivity.this, codigo, descripcion, precio);
+
+                    limpiarDatos();
+                    et_codigo.requestFocus();
+
+                    /*
+                    estadoGuarda = manto.guardar1(MainActivity.this, codigo, descripcion, precio);
+                    if(estadoGuarda){
+                        Toast.makeText(MainActivity.this, "Registro Almacenado Correctamente.", Toast.LENGTH_SHORT).show();
+                        limpiarDatos();
+                        et_codigo.requestFocus();
+                    }*/
+
+                }
+
+
+            }
+        });
+
+
+        //Evento clic del botón eliminar.
+        btn_eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(et_codigo.getText().toString().length()==0){
+                    et_codigo.setError("campo obligatorio");
+                    inputEt = false;
+                }else {
+                    inputEt=true;
+                }
+
+                if(inputEt){
+                    String codigo = et_codigo.getText().toString();
+                    manto.eliminar(MainActivity.this, codigo);
+
+                    limpiarDatos();
+                    et_codigo.requestFocus();
+                    /*
+                    if(estadoEliminar){
+                        Toast.makeText(MainActivity.this, "Registro Eliminado correctamente.", Toast.LENGTH_SHORT).show();
+                        limpiarDatos();
+                    }else{
+                         Toast toast = Toast.makeText(getApplicationContext(), "--> Nothing." +
+                                        "\nNo hay información que eliminar.", Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
+                        limpiarDatos();
+                    }*/
+                }
+            }
+        });
+
+
+        btn_consultaCodigo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Begin...
+                if(et_codigo.getText().toString().length()==0){
+                    et_codigo.setError("campo obligatorio");
+                    inputEt = false;
+                }else {
+                    inputEt=true;
+                }
+
+                if(inputEt) {
+                    String codigo = et_codigo.getText().toString();
+                    manto.consultarCodigo(MainActivity.this, codigo);
+                    et_codigo.requestFocus();
+                }
+                //End
+
+            }
+        });
+
+
+
+        btn_consultaDescripcion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(et_descripcion.getText().toString().length()==0){
+                    et_descripcion.setError("Campo obligatorio");
+                    inputEd = false;
+                }else {
+                    inputEd=true;
+                }
+                if(inputEd){
+                    String descripcion = et_descripcion.getText().toString();
+                    //datos.setDescripcion(descripcion);
+                    manto.consultarDescripcion(MainActivity.this, descripcion);
+                    et_descripcion.requestFocus();
+                    //Hilo();
+
+                }
+
+            }
+        });
+
+
+        btn_actualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(et_codigo.getText().toString().length()==0){
+                    et_codigo.setError("campo obligatorio");
+                    inputEt = false;
+                }else {
+                    inputEt=true;
+                }
+
+                if(inputEt) {
+
+                    String cod = et_codigo.getText().toString();
+                    String descripcion = et_descripcion.getText().toString();
+                    String precio = et_precio.getText().toString();
+
+                    datos.setCodigo(Integer.parseInt(cod));
+                    datos.setDescripcion(descripcion);
+                    datos.setPrecio(Double.parseDouble(precio));
+                    manto.modificar(MainActivity.this, datos);
+                    limpiarDatos();
+                    et_codigo.requestFocus();
+                }
+
+            }
+        });
+
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
 
     }
 
 
-    private void confirmacion(){
-        String mensaje = "¿Realmente desea cerrar esta pantalla?";
-        dialogo = new AlertDialog.Builder(MainActivity.this);
-        dialogo.setIcon(R.drawable.ic_close);
-        dialogo.setTitle("Warning");
-        dialogo.setMessage(mensaje);
-        dialogo.setCancelable(false);
-        dialogo.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo, int id) {
-                /*Intent intent = new Intent(DashboardLuces.this, luces_control_sms.class);
-                startActivity(intent);*/
-                //DashboardLuces.this.finishAffinity();
-                MainActivity.this.finish();
-            }
-        });
-        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo, int id) {
-                //Toast.makeText(getApplicationContext(), "Operación Cancelada.", Toast.LENGTH_LONG).show();
-            }
-        });
-        dialogo.show();
-
+    public void limpiarDatos(){
+        et_codigo.setText(null);
+        et_descripcion.setText(null);
+        et_precio.setText(null);
     }
+
+
 
 
     @Override
@@ -181,178 +328,106 @@ public class MainActivity extends AppCompatActivity {
             et_precio.setText(null);
             return true;
         }else if(id == R.id.action_listaArticulos){
-            Intent spinnerActivity = new Intent(MainActivity.this, ConsultaSpinner.class);
+            Intent spinnerActivity = new Intent(MainActivity.this, Consulta_RecyclerView.class);
             startActivity(spinnerActivity);
             return true;
-        }else if(id == R.id.action_listaArticulos1){
-            Intent listViewActivity = new Intent(MainActivity.this, ListViewArticulos.class);
-            startActivity(listViewActivity);
+        }else if (id==R.id.action_acercade){
+            Intent spinnerActivity = new Intent(MainActivity.this, Acercade.class);
+            startActivity(spinnerActivity);
+
+        }else if(id == R.id.action_salir){
+            DialogConfirmacion();
             return true;
         }
+
 
         return super.onOptionsItemSelected(item);
     }
 
+    /*
+    @Override
+    public void onSetDatosInput(Dto datos) {
+        //Toast.makeText(this, "Código: "+datos.getCodigo(), Toast.LENGTH_SHORT).show();
+    }*/
 
 
-    public void alta(View v) {
-        if(et_codigo.getText().toString().length()==0){
-            et_codigo.setError("Campo obligatorio");
-            inputEt = false;
-        }else {
-            inputEt=true;
-        }
-        if(et_descripcion.getText().toString().length()==0){
-            et_descripcion.setError("Campo obligatorio");
-            inputEd = false;
-        }else {
-            inputEd=true;
-        }
-        if(et_precio.getText().toString().length()==0){
-            et_precio.setError("Campo obligatorio");
-            input1 = false;
-        }else {
-            input1=true;
-        }
-        if (inputEt && inputEd && input1){
+    private void DialogConfirmacion(){
+        //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        String mensaje = "¿Realmente desea salir?";
+        dialogo = new AlertDialog.Builder(MainActivity.this);
+        dialogo.setIcon(R.drawable.ic_close);
+        dialogo.setTitle("Advertencia");
+        dialogo.setMessage(mensaje);
+        dialogo.setCancelable(false);
+        dialogo.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo, int id) {
+                /*Intent intent = new Intent(DashboardLuces.this, luces_control_sms.class);
+                startActivity(intent);*/
+                MainActivity.this.finishAffinity();
+                //MainActivity.this.finish();
+            }
+        });
+        dialogo.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo, int id) {
+                Toast.makeText(getApplicationContext(), "Operación Cancelada.", Toast.LENGTH_LONG).show();
+            }
+        });
+        dialogo.show();
+    }
 
-            try {
-                datos.setCodigo(Integer.parseInt(et_codigo.getText().toString()));
-                datos.setDescripcion(et_descripcion.getText().toString());
-                datos.setPrecio(Double.parseDouble(et_precio.getText().toString()));
-                //if(conexion.insertardatos(datos)){
-                //if(conexion.InsertRegister(datos)){
-                if(conexion.InserTradicional(datos)){
-                    Toast.makeText(this, "Registro agregado satisfactoriamente!", Toast.LENGTH_SHORT).show();
-                    limpiarDatos();
-                }else{
-                    Toast.makeText(getApplicationContext(), "Error. Ya existe un registro\n" +
-                            " Código: "+et_codigo.getText().toString(),Toast.LENGTH_LONG).show();
-                    limpiarDatos();
+
+    //Creación de HILOS
+    void Hilo(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for(int i=1; i<=1; i++){
+                    demora();
                 }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String cod = getSharedCodigo(MainActivity.this);
+                        String des = getSharedDescripcion(MainActivity.this);
+                        String pre = getSharedPrecio(MainActivity.this);
 
-            }catch (Exception e){
-                Toast.makeText(this, "ERROR. Ya existe.", Toast.LENGTH_SHORT).show();
+                        et_codigo.setText(cod);
+                        et_descripcion.setText(des);
+                        et_precio.setText(pre);
+
+                        //Toast.makeText(MainActivity.this, "Código: "+cod + "\nPrecio: "+pre + "\nDescripción: "+des, Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
-        }
-    }
-
-    public void mensaje (String mensaje){
-        Toast.makeText(this, ""+mensaje, Toast.LENGTH_SHORT).show();
-    }
-
-    public void limpiarDatos(){
-        et_codigo.setText(null);
-        et_descripcion.setText(null);
-        et_precio.setText(null);
-        et_codigo.requestFocus();
+        }).start();
     }
 
 
-    public void consultaporcodigo(View v) {
-        if(et_codigo.getText().toString().length()==0){
-            et_codigo.setError("Campo obligatorio");
-            inputEt = false;
-        }else {
-            inputEt=true;
-        }
-        if(inputEt){
-            String codigo = et_codigo.getText().toString();
-            datos.setCodigo(Integer.parseInt(codigo));
-            //if(conexion.consultaCodigo(datos)){
-            if(conexion.consultaArticulos(datos)){
-                et_descripcion.setText(datos.getDescripcion());
-                et_precio.setText(""+datos.getPrecio());
-                //Toast.makeText(this, "Se encontro uno", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "No existe un artículo con dicho código", Toast.LENGTH_SHORT).show();
-                limpiarDatos();
-            }
-
-        }else{
-            Toast.makeText(this, "Ingrese el código del articulo a buscar.", Toast.LENGTH_SHORT).show();
-        }
+    private void demora(){
+        try{
+            Thread.sleep(1000);
+        }catch (InterruptedException e){}
     }
 
 
-    public void consultapordescripcion(View v) {
-        if(et_descripcion.getText().toString().length()==0){
-            et_descripcion.setError("Campo obligatorio");
-            inputEd = false;
-        }else {
-            inputEd=true;
-        }
-        if(inputEd){
-
-            String descripcion = et_descripcion.getText().toString();
-            datos.setDescripcion(descripcion);
-            if(conexion.consultarDescripcion(datos)){
-                et_codigo.setText(""+datos.getCodigo());
-                et_descripcion.setText(datos.getDescripcion());
-                et_precio.setText(""+datos.getPrecio());
-                //Toast.makeText(this, "Se encontro uno", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "No existe un artículo con dicha descripción", Toast.LENGTH_SHORT).show();
-                limpiarDatos();
-            }
-
-
-        }else{
-            Toast.makeText(this, "Ingrese la descripción del articulo a buscar.", Toast.LENGTH_SHORT).show();
-        }
-
+    public String getSharedCodigo(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("diana", MODE_PRIVATE);
+        String codigo = preferences.getString("codigo","0");
+        return codigo;   //return preferences.getString("tiempo", "Sin configurar.");
     }
 
-    public void bajaporcodigo(View v) {
+    public String getSharedDescripcion(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("diana", MODE_PRIVATE);
+        String descripcion = preferences.getString("descripcion","Sin descripción");
+        return descripcion;   //return preferences.getString("tiempo", "Sin configurar.");
+    }
 
-        if(et_codigo.getText().toString().length()==0){
-            et_codigo.setError("campo obligatorio");
-            inputEt = false;
-        }else {
-            inputEt=true;
-        }
-
-        if(inputEt){
-            String cod = et_codigo.getText().toString();
-            datos.setCodigo(Integer.parseInt(cod));
-            if(conexion.bajaCodigo(MainActivity.this,datos)){
-                //Toast.makeText(this, "Registro eliminado satisfactoriamente.", Toast.LENGTH_SHORT).show();
-                limpiarDatos();
-            }else{
-                Toast.makeText(this, "No existe un artículo con dicho código.", Toast.LENGTH_SHORT).show();
-                limpiarDatos();
-            }
-        }
+    public String getSharedPrecio(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("diana", MODE_PRIVATE);
+        String precio = preferences.getString("precio","0.0");
+        return precio;   //return preferences.getString("tiempo", "Sin configurar.");
     }
 
 
-    public void modificacion(View v) {
-
-        if(et_codigo.getText().toString().length()==0){
-            et_codigo.setError("campo obligatorio");
-            inputEt = false;
-        }else {
-            inputEt=true;
-        }
-
-        if(inputEt) {
-
-            String cod = et_codigo.getText().toString();
-            String descripcion = et_descripcion.getText().toString();
-            double precio = Double.parseDouble(et_precio.getText().toString());
-
-            datos.setCodigo(Integer.parseInt(cod));
-            datos.setDescripcion(descripcion);
-            datos.setPrecio(precio);
-            if(conexion.modificar(datos)){
-                Toast.makeText(this, "Registro Modificado Correctamente.", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "No se han encontrado resultados para la busqueda especificada.", Toast.LENGTH_SHORT).show();
-            }
-
-        }
-
-
-    }
 
 }
