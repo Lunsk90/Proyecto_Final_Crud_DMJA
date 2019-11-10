@@ -43,6 +43,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Ingrese el código"
                 android:inputType="number"
+                android:layout_marginTop="10dp"
                 android:textColor="#fff"
                 android:background="@drawable/text"
                 android:shadowColor="#A82A2A"
@@ -84,7 +85,7 @@
                 android:paddingLeft="25dp"
                 android:drawableStart="@drawable/ic_descripcion"
                 android:drawablePadding="5dp"
-                android:drawableLeft="@drawable/ic_descripcion" />
+                />
 
             <EditText
                 android:id="@+id/et_precio"
@@ -151,7 +152,7 @@
                 android:drawableStart="@drawable/ic_search"
                 android:paddingLeft="80dp"
                 android:drawablePadding="-40dp"
-                />
+                android:drawableLeft="@drawable/ic_search" />
 
             <Button
                 android:id="@+id/btn_consultar2"
