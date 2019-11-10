@@ -42,22 +42,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new android.app.AlertDialog.Builder(this)
-                    .setTitle("Warning")
-                    .setMessage("¿Realmente desea cerrar esta actividad?")
+                    .setIcon(R.drawable.ic_close)
+                    .setTitle("Advertencia")
+                    .setMessage("¿Realmente desea salir?")
                     .setNegativeButton(android.R.string.cancel, null)
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {//un listener que al pulsar, cierre la aplicacion
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            /*Intent intent = new Intent(DashboardLuces.this, luces_control_sms.class);
-                            startActivity(intent);*/
-                            //MainActivity.this.finishAffinity();
-                            //finish();
-                            finishAffinity();
+                            MainActivity.this.finishAffinity();
                         }
                     })
                     .show();
-                    .setIcon(R.drawable.ic_close)
-            // Si el listener devuelve true, significa que el evento esta procesado, y nadie debe hacer nada mas
             return true;
         }
         //para las demas cosas, se reenvia el evento al listener habitual
