@@ -33,12 +33,10 @@ public class MainActivity extends AppCompatActivity{
     boolean input1=false;
     int resultadoInsert=0;
 
-    MantenimientoMySQL manto = new MantenimientoMySQL();
+    Modal ventanas = new Modal();
+    ConexionSQLite conexion = new ConexionSQLite(this);
     Dto datos = new Dto();
-
-    //Banderas para saber estados de métodos del CRUD.
-    boolean estadoGuarda = false;
-    boolean estadoEliminar = false;
+    AlertDialog.Builder dialogo;
 
     AlertDialog.Builder dialogo;
 
