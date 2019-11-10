@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity{
         toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_back));
         toolbar.setTitleTextColor(getResources().getColor(R.color.mycolor1));
         toolbar.setTitleMargin(0, 0, 0, 0);
-        toolbar.setSubtitle("CRUD MySQLD");
+        toolbar.setSubtitle("CRUD MySQL");
         toolbar.setSubtitleTextColor(getResources().getColor(R.color.mycolor));
-        toolbar.setTitle("diana");
+        toolbar.setTitle("Grupo DMJA");
         setSupportActionBar(toolbar);
 
         ///y esto para pantalla completa (oculta incluso la barra de estado)
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity{
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
         et_precio = (EditText) findViewById(R.id.et_precio);
         btn_guardar = (Button) findViewById(R.id.btn_guardar);
-        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultaCodigo);
+        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultarCodigo);
         btn_consultaDescripcion = (Button) findViewById(R.id.btn_consultaDescripcion);
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);

@@ -127,7 +127,11 @@
                 android:drawablePadding="-40dp"
                 />
             <Button
+<<<<<<< HEAD
                 android:id="@+id/btn_consultaDescripcion"
+=======
+                android:id="@+id/btn_consultarCodigo"
+>>>>>>> d9335c6e4826dc325975a609d418a1bced7813e5
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -147,7 +151,11 @@
 
                 />
             <Button
+<<<<<<< HEAD
                 android:id="@+id/btn_eliminar"
+=======
+                android:id="@+id/btn_consultaDescripcion"
+>>>>>>> d9335c6e4826dc325975a609d418a1bced7813e5
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
