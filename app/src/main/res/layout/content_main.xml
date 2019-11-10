@@ -109,7 +109,7 @@
                 android:drawablePadding="-40dp"/>
 
             <Button
-                android:id="@+id/btn_consultaCodigo"
+                android:id="@+id/btn_consultar1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -127,7 +127,7 @@
                 android:drawablePadding="-40dp"
                 />
             <Button
-                android:id="@+id/btn_consultaDescripcion"
+                android:id="@+id/btn_consultar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"

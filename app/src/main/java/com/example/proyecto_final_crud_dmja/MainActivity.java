@@ -186,6 +186,10 @@ public class MainActivity extends AppCompatActivity {
             Intent spinnerActivity = new Intent(MainActivity.this, ConsultaSpinner.class);
             startActivity(spinnerActivity);
             return true;
+        }else if(id == R.id.action_acercade){
+            Intent spinnerActivity = new Intent(MainActivity.this, Acercade.class);
+            startActivity(spinnerActivity);
+            return true;
         }else if(id == R.id.action_listaArticulos1){
             Intent listViewActivity = new Intent(MainActivity.this, ListViewArticulos.class);
             startActivity(listViewActivity);
