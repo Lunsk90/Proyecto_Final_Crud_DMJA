@@ -15,11 +15,8 @@
         <activity android:name=".Modal" />
         <activity android:name=".Login" />
         <activity android:name=".SplashScreen" />
-<<<<<<< HEAD
         <activity android:name=".DetalleArticulos" />
 
-=======
->>>>>>> d6ea858660eacde80eb6d1441afb924a6d9adf7e
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -30,6 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Modal$Modal" />
     </application>
 
 </manifest>
