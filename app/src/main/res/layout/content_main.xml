@@ -54,7 +54,7 @@
                 android:drawablePadding="5dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
-                />
+                android:drawableLeft="@drawable/ic_hola" />
 
             <!--
             <EditText
@@ -84,7 +84,7 @@
                 android:paddingLeft="25dp"
                 android:drawableStart="@drawable/ic_descripcion"
                 android:drawablePadding="5dp"
-                />
+                android:drawableLeft="@drawable/ic_descripcion" />
 
             <EditText
                 android:id="@+id/et_precio"
@@ -99,7 +99,7 @@
                 android:paddingLeft="25dp"
                 android:drawableStart="@drawable/ic_precio"
                 android:drawablePadding="5dp"
-                />
+                android:drawableLeft="@drawable/ic_precio" />
 
             <!--<TextView
                 android:id="@+id/tv_resultado"
