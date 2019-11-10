@@ -4,4 +4,6 @@
     <string name="action_settings">Nuevo Registro</string>
     <string name="listarticulos">Lista Spinner</string>
     <string name="listarticulos1">Lista ListView</string>
+    <string name="salir">Salir</string>
+
 </resources>
