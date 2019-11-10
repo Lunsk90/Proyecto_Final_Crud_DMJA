@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity{
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
         et_precio = (EditText) findViewById(R.id.et_precio);
         btn_guardar = (Button) findViewById(R.id.btn_guardar);
-        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultaCodigo);
+        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultarCodigo);
         btn_consultaDescripcion = (Button) findViewById(R.id.btn_consultaDescripcion);
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
