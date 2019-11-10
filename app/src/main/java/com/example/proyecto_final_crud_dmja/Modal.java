@@ -18,6 +18,7 @@ public class Modal {
     AlertDialog.Builder dialogo;
     boolean validaInput = false;
 
+<<<<<<< HEAD
     String codigo;
     String descripcion;
     String precio;
@@ -25,6 +26,35 @@ public class Modal {
     SQLiteDatabase bd = null;
     Dto datos = new Dto();
 
+=======
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class Modal extends AppCompatActivity {
+    Dialog myDialog;
+    AlertDialog.Builder dialogo;
+    boolean validaInput = false;
+
+    String codigo;
+    String descripcion;
+    String precio;
+
+    SQLiteDatabase bd = null;
+    Dto datos = new Dto();
+
+>>>>>>> d6ea858660eacde80eb6d1441afb924a6d9adf7e
     public void Search(final Context context){
         myDialog = new Dialog(context);
         myDialog.setContentView(R.layout.ventana1);
@@ -138,6 +168,7 @@ public class Modal {
 
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         myDialog.show();
+<<<<<<< HEAD
     }
 
     public void ventana2(Context context){
@@ -166,6 +197,36 @@ public class Modal {
         myDialog.show();
     }
 
+=======
+    }
+
+    public void ventana2(Context context){
+        dialogo = new AlertDialog.Builder(context);
+        dialogo.setIcon(R.drawable.ic_search);
+        dialogo.setTitle("Busqueda");
+
+    }
+
+    public void ventana0(Context context){
+        myDialog = new Dialog(context);
+        myDialog.setContentView(R.layout.ventana1);
+        myDialog.setTitle("Search");
+        myDialog.setCancelable(true);
+
+        EditText et_cod = (EditText)myDialog.findViewById(R.id.et_cod);
+        Button btn_buscar = (Button)myDialog.findViewById(R.id.btn_buscar);
+        TextView tv_close = (TextView)myDialog.findViewById(R.id.tv_close);
+        tv_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+    }
+
+>>>>>>> d6ea858660eacde80eb6d1441afb924a6d9adf7e
 
 }
 

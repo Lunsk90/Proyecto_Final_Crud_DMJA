@@ -1,5 +1,6 @@
 package com.example.proyecto_final_crud_dmja;
 
+<<<<<<< HEAD
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,10 +32,19 @@ public class ListViewArticulos extends AppCompatActivity {
     Dto datos = new Dto();
 
 
+=======
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+
+public class ListViewArticulos extends AppCompatActivity {
+
+>>>>>>> d6ea858660eacde80eb6d1441afb924a6d9adf7e
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view_articulos);
+<<<<<<< HEAD
 
         listViewPersonas= (ListView) findViewById(R.id.listViewPersonas);
         searchView = (SearchView) findViewById(R.id.searchView);
@@ -106,3 +116,7 @@ public class ListViewArticulos extends AppCompatActivity {
     }
 }
 
+=======
+    }
+}
+>>>>>>> d6ea858660eacde80eb6d1441afb924a6d9adf7e

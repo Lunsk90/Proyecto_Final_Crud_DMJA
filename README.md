@@ -11,7 +11,7 @@ Rivas Julissa.
 Ramírez Alcides.
 
 basado en un CRUD,
-conexion a base de datos MYSQL
+conexion a base de datos SQLite
 y realizar un escaneo de datos con Código QR en Android Studio.
 
 
