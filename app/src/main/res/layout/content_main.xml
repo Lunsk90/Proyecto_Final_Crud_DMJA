@@ -37,6 +37,7 @@
                 android:layout_height="167dp"
                 android:src="@drawable/computadora1" />
 
+
             <EditText
                 android:id="@+id/et_codigo"
                 android:layout_width="match_parent"
@@ -90,6 +91,7 @@
                 android:drawablePadding="3dp"
                 android:drawableLeft="@drawable/ic_precio" />
 
+
             <Button
                 android:id="@+id/btn_guardar"
                 android:layout_width="match_parent"
@@ -98,6 +100,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
                 android:text="Guardar "
+                android:onClick="alta"
                 android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
@@ -116,6 +119,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
                 android:text="Consultar por código"
+                android:onClick="consultaporcodigo"
                 android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
@@ -134,6 +138,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
                 android:text=" Consultar por descripción"
+                android:onClick="consultapordescripcion"
                 android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
@@ -155,6 +160,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
                 android:text="Eliminar por código"
+                android:onClick="bajaporcodigo"
                 android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
@@ -174,6 +180,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
                 android:text="Editar"
+                android:onClick="modificacion"
                 android:textColor="#0E0D0D"
                 android:background="@drawable/button"
                 android:shadowColor="#2314A8"
