@@ -194,17 +194,7 @@ public class MainActivity extends AppCompatActivity{
 
                     limpiarDatos();
                     et_codigo.requestFocus();
-                    /*
-                    if(estadoEliminar){
-                        Toast.makeText(MainActivity.this, "Registro Eliminado correctamente.", Toast.LENGTH_SHORT).show();
-                        limpiarDatos();
-                    }else{
-                         Toast toast = Toast.makeText(getApplicationContext(), "--> Nothing." +
-                                        "\nNo hay información que eliminar.", Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER, 0, 0);
-                                toast.show();
-                        limpiarDatos();
-                    }*/
+
                 }
             }
         });

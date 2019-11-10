@@ -180,7 +180,7 @@ public class MantenimientoMySQL1 {
         progressDialog = new ProgressDialog(context);
 
         dialogo = new AlertDialog.Builder(context);
-        dialogo.setIcon(R.drawable.ic_borrar);
+        dialogo.setIcon(R.drawable.ic_delete);
         dialogo.setTitle("¡¡¡Advertencia!!!");
         dialogo.setMessage("¿Realmente desea borrar el registro?\n" +
                 "Código: "+codigo);
