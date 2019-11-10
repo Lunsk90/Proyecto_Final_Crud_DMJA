@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             new android.app.AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_close)
                     .setTitle("Warning")
                     .setMessage("¿Realmente desea cerrar esta actividad?")
                     .setNegativeButton(android.R.string.cancel, null)
@@ -57,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     })
                     .show();
+                    .setIcon(R.drawable.ic_close)
             // Si el listener devuelve true, significa que el evento esta procesado, y nadie debe hacer nada mas
             return true;
         }
