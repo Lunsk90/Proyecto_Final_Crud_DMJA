@@ -10,23 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Acercade"></activity>
-        <activity android:name=".Consulta_RecyclerView" />
         <activity android:name=".ConsultaSpinner" />
         <activity android:name=".Modal" />
+        <activity android:name=".Login" />
+        <activity android:name=".SplashScreen" />
+
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Login"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
+
         </activity>
     </application>
 
