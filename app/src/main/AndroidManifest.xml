@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.proyecto_final_crud_dmja">
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -9,25 +10,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListViewArticulos"></activity>
+        <activity android:name=".ActivityEscanear"></activity>
+
+        <activity android:name=".ListViewArticulos" />
         <activity android:name=".Acercade" />
         <activity android:name=".ConsultaSpinner" />
         <activity android:name=".Modal" />
         <activity android:name=".Login" />
         <activity android:name=".SplashScreen" />
         <activity android:name=".DetalleArticulos" />
-
-        <activity
-            android:name=".MainActivity"
+        <activity android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".ActivityEscaner">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+
         </activity>
-        <activity android:name=".Modal$Modal" />
+
     </application>
 
 </manifest>
