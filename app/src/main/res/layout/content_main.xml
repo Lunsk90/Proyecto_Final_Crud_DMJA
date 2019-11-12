@@ -124,7 +124,7 @@
                 android:shadowDx="-3"
                 android:shadowDy="0"
                 android:shadowRadius="0"
-                android:drawableLeft="@drawable/ic_save"
+                android:drawableLeft="@drawable/ic_scanner"
                 android:paddingLeft="30dp"
                 android:drawablePadding="-40dp"/>
 

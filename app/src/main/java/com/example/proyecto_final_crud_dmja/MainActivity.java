@@ -9,10 +9,13 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +29,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity{
 
     private EditText et_codigo, et_descripcion, et_precio;
-    private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
+    private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar,btn_scanner;
 
     boolean inputEt=false;
     boolean inputEd=false;
@@ -96,6 +99,12 @@ public class MainActivity extends AppCompatActivity{
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
         //tv_resultado = (TextView) findViewById(R.id.tv_resultado);
+
+        btn_scanner=(Button)findViewById(R.id.btn_scanner);
+
+        btn_scanner.setOnClickListener(Scnr);
+
+
 
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -455,5 +464,26 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null)
+            if (result.getContents() != null){
+                et_codigo.setText("El código es: \n"+result.getContents());
+            }else {
+                et_codigo.setText("Error al escanear");
+            }
+    }
+
+    private View.OnClickListener Scnr = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_scanner:
+                    new IntentIntegrator(MainActivity.this).initiateScan();
+            }
+        }
+    };
 
 }
