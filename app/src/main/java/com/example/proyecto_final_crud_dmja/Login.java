@@ -2,6 +2,7 @@ package com.example.proyecto_final_crud_dmja;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -42,8 +43,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(this);
 
+                Intent btnLogin = new Intent(Login.this, ActivityEscaner.class);
+                startActivity(btnLogin);
+            }
 
-    }
+
+
+
 
 
     @Override
