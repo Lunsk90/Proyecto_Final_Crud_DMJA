@@ -4,14 +4,14 @@ Este es nuestro proyecto final 2019 integrado por:
 
 Berríos Diana.
 
-Campos Marlyn.
+Campos Orellana Marlyn Sofía.
 
-Rivas Julissa.
+Morales Rivas Julisa Yaneth.
 
-Ramírez Alcides.
+Ramírez Minere Alcides José.
 
 basado en un CRUD,
-conexion a base de datos SQLite
+conexion a base de datos MYSQL
 y realizar un escaneo de datos con Código QR en Android Studio.
 
 
