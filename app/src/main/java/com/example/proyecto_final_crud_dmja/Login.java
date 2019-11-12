@@ -43,8 +43,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(this);
 
-                Intent btnLogin = new Intent(Login.this, ActivityEscaner.class);
-                startActivity(btnLogin);
+
             }
 
 
@@ -57,8 +56,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         switch (view.getId()){
 
             case R.id.btnLogin:
-                //Toast.makeText(this, "Vamos bien...", Toast.LENGTH_SHORT).show();
-                login();
+                Intent btnLogin = new Intent(Login.this, ActivityEscaner.class);
+                startActivity(btnLogin);
+                //login();
                 break;
 
             default:
