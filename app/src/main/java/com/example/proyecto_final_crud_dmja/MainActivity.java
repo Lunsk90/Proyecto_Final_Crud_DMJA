@@ -1,4 +1,4 @@
-package com.example.proyecto_final_crud_dmja.;
+package com.example.proyecto_final_crud_dmja;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,7 +26,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity{
 
     private EditText et_codigo, et_descripcion, et_precio;
-    private Button btn_guardar, btn_consultaCodigo, btn_consultaDescripcion, btn_eliminar, btn_actualizar;
+    private Button btn_guardar, btn_consultar1, btn_consultar2, btn_eliminar, btn_actualizar;
 
     boolean inputEt=false;
     boolean inputEd=false;
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity{
         et_descripcion = (EditText) findViewById(R.id.et_descripcion);
         et_precio = (EditText) findViewById(R.id.et_precio);
         btn_guardar = (Button) findViewById(R.id.btn_guardar);
-        btn_consultaCodigo = (Button) findViewById(R.id.btn_consultaCodigo);
-        btn_consultaDescripcion = (Button) findViewById(R.id.btn_consultaDescripcion);
+        btn_consultar1 = (Button) findViewById(R.id.btn_consultar1);
+        btn_consultar2 = (Button) findViewById(R.id.btn_consultar2);
         btn_eliminar = (Button) findViewById(R.id.btn_eliminar);
         btn_actualizar = (Button) findViewById(R.id.btn_actualizar);
         //tv_resultado = (TextView) findViewById(R.id.tv_resultado);
@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity{
         });
 
 
-        btn_consultaCodigo.setOnClickListener(new View.OnClickListener() {
+        btn_consultar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -261,7 +261,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        btn_consultaDescripcion.setOnClickListener(new View.OnClickListener() {
+        btn_consultar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -358,6 +358,10 @@ public class MainActivity extends AppCompatActivity{
             Intent spinnerActivity = new Intent(MainActivity.this, Consulta_RecyclerView.class);
             startActivity(spinnerActivity);
             return true;
+        }else if(id == R.id.action_acercade){
+            Intent spinnerActivity = new Intent(MainActivity.this, Acercade.class);
+            startActivity(spinnerActivity);
+            return true;
         }else if(id == R.id.action_salir){
             DialogConfirmacion();
             return true;
@@ -433,19 +437,19 @@ public class MainActivity extends AppCompatActivity{
 
 
     public String getSharedCodigo(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("profeGamez", MODE_PRIVATE);
+        SharedPreferences preferences = context.getSharedPreferences("MDJA", MODE_PRIVATE);
         String codigo = preferences.getString("codigo","0");
         return codigo;   //return preferences.getString("tiempo", "Sin configurar.");
     }
 
     public String getSharedDescripcion(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("profeGamez", MODE_PRIVATE);
+        SharedPreferences preferences = context.getSharedPreferences("DMJA", MODE_PRIVATE);
         String descripcion = preferences.getString("descripcion","Sin descripción");
         return descripcion;   //return preferences.getString("tiempo", "Sin configurar.");
     }
 
     public String getSharedPrecio(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences("profeGamez", MODE_PRIVATE);
+        SharedPreferences preferences = context.getSharedPreferences("DMJA", MODE_PRIVATE);
         String precio = preferences.getString("precio","0.0");
         return precio;   //return preferences.getString("tiempo", "Sin configurar.");
     }

@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ActivityEscanear"></activity>
+        <activity android:name=".Consulta_RecyclerView"></activity>
+
 
         <activity android:name=".Acercade" />
 
