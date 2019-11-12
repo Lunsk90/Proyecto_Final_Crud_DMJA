@@ -1,23 +1,19 @@
 package com.example.proyecto_final_crud_dmja;
 
-
-import java.io.Serializable;
-
-//Para enviar objetos entre actividades (Como parámetro) se coloca el "implements Serializable"
-public class Dto implements Serializable {
+public class Productos {
     int codigo;
     String descripcion;
     double precio;
+    String imagen;
 
-
-    public Dto() {
+    public Productos() {
     }
 
-
-    public Dto(int codigo, String descripcion, double precio) {
+    public Productos(int codigo, String descripcion, double precio, String imagen) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
+        this.imagen = imagen;
     }
 
     public int getCodigo() {
@@ -42,5 +38,13 @@ public class Dto implements Serializable {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

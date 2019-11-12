@@ -14,11 +14,9 @@
 
         <activity android:name=".ListViewArticulos" />
         <activity android:name=".Acercade" />
-        <activity android:name=".ConsultaSpinner" />
         <activity android:name=".Modal" />
         <activity android:name=".Login" />
         <activity android:name=".SplashScreen" />
-        <activity android:name=".DetalleArticulos" />
         <activity android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar"
