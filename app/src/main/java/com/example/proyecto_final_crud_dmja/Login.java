@@ -1,4 +1,4 @@
-package com.example.proyecto_final_crud_dmja.;
+package com.example.proyecto_final_crud_dmja;
 
 import androidx.appcompat.app.AppCompatActivity;
 
