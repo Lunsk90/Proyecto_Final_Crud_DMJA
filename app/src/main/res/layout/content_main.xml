@@ -91,7 +91,23 @@
                 android:drawablePadding="3dp"
                 android:drawableLeft="@drawable/ic_precio" />
 
-
+            <Button
+                android:id="@+id/btn_scanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:text="Escanear id del producto "
+                android:textColor="#0E0D0D"
+                android:background="@drawable/button"
+                android:shadowColor="#2314A8"
+                android:shadowDx="-3"
+                android:shadowDy="0"
+                android:shadowRadius="0"
+                android:drawableLeft="@drawable/ic_scanner"
+                android:paddingLeft="30dp"
+                android:drawablePadding="-40dp"/>
             <Button
                 android:id="@+id/btn_guardar"
                 android:layout_width="match_parent"
@@ -110,23 +126,7 @@
                 android:paddingLeft="30dp"
                 android:drawablePadding="-40dp"/>
 
-            <Button
-                android:id="@+id/btn_scanner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:text="Guardar "
-                android:textColor="#0E0D0D"
-                android:background="@drawable/button"
-                android:shadowColor="#2314A8"
-                android:shadowDx="-3"
-                android:shadowDy="0"
-                android:shadowRadius="0"
-                android:drawableLeft="@drawable/ic_scanner"
-                android:paddingLeft="30dp"
-                android:drawablePadding="-40dp"/>
+
 
             <Button
                 android:id="@+id/btn_consultar1"

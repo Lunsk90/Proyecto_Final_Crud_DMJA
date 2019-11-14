@@ -73,10 +73,10 @@
                         android:drawablePadding="5dp"
                         android:paddingLeft="15dp"
                         android:paddingRight="15dp"
+                        android:textSize="15sp"
                         android:hint="Ingrese su e-mail"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/colorAccent"
-                        android:textSize="18sp"
                         android:drawableLeft="@drawable/ic_back" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -148,16 +148,6 @@
         </RelativeLayout>
 
     </RelativeLayout>
-
-
-
-
-
-
-
-
-
-
 
 
 

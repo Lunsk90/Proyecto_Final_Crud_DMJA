@@ -16,10 +16,9 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/action_acercade"
-        android:icon="@drawable/ic_view"
-        android:orderInCategory="2"
-        android:title="@string/acercade"
-        app:showAsAction="always" />
+        android:orderInCategory="4"
+        android:title="acerca de"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_salir"

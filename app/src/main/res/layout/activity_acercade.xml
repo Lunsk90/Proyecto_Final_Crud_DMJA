@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondojpg"
+    android:background="#277397"
     tools:context=".Acercade">
 
 
@@ -35,6 +35,13 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/diana" />
+            <TextView
+                android:id="@+id/tvNombre1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:textColor="#E91E63" />
 
 
             <ImageView
@@ -43,6 +50,13 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/yo" />
+            <TextView
+                android:id="@+id/tvNombre2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:textColor="#E91E63" />
 
             <ImageView
                 android:id="@+id/fotoso"
@@ -50,6 +64,13 @@
                 android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
                 android:src="@drawable/sofia" />
+            <TextView
+                android:id="@+id/tvNombre3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:textColor="#E91E63" />
 
 
             <ImageView
@@ -60,13 +81,12 @@
                 android:src="@drawable/july" />
 
             <TextView
-                android:id="@+id/tvNombre"
+                android:id="@+id/tvNombre4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#1F1C1D"
                 android:layout_marginBottom="12dp"
-                />
+                android:gravity="center"
+                android:textColor="#E91E63" />
 
 
 
@@ -76,13 +96,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
-                android:layout_marginTop="2dp"
                 android:gravity="center"
                 android:textColor="#E91E63"
                 android:textSize="20sp" />
-
 
 
         </LinearLayout>
