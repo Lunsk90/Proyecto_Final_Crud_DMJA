@@ -33,7 +33,7 @@ import java.util.Map;
 import static android.content.Context.MODE_PRIVATE;
 
 public class MantenimientoMySQL {
-    /*
+  /*
         public MantoInterface manto;
         public interface MantoInterface {
             //void onSetDatosInput(String codigo, String descripcion, String precio);
@@ -360,9 +360,9 @@ public class MantenimientoMySQL {
                                 String descripcion = jsonArray.getJSONObject(0).getString("descripcion");
                                 String precio = jsonArray.getJSONObject(0).getString("precio");
 
-                               datos.setCodigo(Integer.parseInt(codigo));
-                               datos.setDescripcion(descripcion);
-                               datos.setPrecio(Double.parseDouble(precio));
+                                datos.setCodigo(Integer.parseInt(codigo));
+                                datos.setDescripcion(descripcion);
+                                datos.setPrecio(Double.parseDouble(precio));
 
                                 Intent intent = new Intent(context, MainActivity.class);
                                 intent.putExtra("senal", "1");
@@ -406,7 +406,7 @@ public class MantenimientoMySQL {
 
     public ArrayList<String> consultarAllArticulos(final Context context){
 
-      final ArrayList productosList = new ArrayList<>();  //ArrayList<String>
+        final ArrayList productosList = new ArrayList<>();  //ArrayList<String>
 
         progressDialog = new ProgressDialog(context);
         progressDialog.setCancelable(false);
@@ -484,36 +484,36 @@ public class MantenimientoMySQL {
                     @SuppressLint("ResourceType")
                     @Override
                     public void onResponse(String response) {
-                try {
-                    //Creamos un objeto JSONObject para poder acceder a los atributos (campos) del objeto. Esperando que todo
-                    JSONObject respuestaJSON = new JSONObject(response.toString());                 //Creo un JSONObject a partir del StringBuilder pasado a cadena
+                        try {
+                            //Creamos un objeto JSONObject para poder acceder a los atributos (campos) del objeto. Esperando que todo
+                            JSONObject respuestaJSON = new JSONObject(response.toString());                 //Creo un JSONObject a partir del StringBuilder pasado a cadena
 
-                    //Accedemos al vector de resultados
-                    String resultJSON = respuestaJSON.getString("estado");   // estado es el nombre del campo en el JSON
-                    String result_msj = respuestaJSON.getString("mensaje");   // estado es el nombre del campo en el JSON
+                            //Accedemos al vector de resultados
+                            String resultJSON = respuestaJSON.getString("estado");   // estado es el nombre del campo en el JSON
+                            String result_msj = respuestaJSON.getString("mensaje");   // estado es el nombre del campo en el JSON
 
-                    if (resultJSON.equals("1")) {
+                            if (resultJSON.equals("1")) {
 
-                        Toast toast = Toast.makeText(context, ""+result_msj, Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+                                Toast toast = Toast.makeText(context, ""+result_msj, Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
 
-                    } else if (resultJSON.equals("2")) {
-                        Toast toast = Toast.makeText(context, ""+result_msj, Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+                            } else if (resultJSON.equals("2")) {
+                                Toast toast = Toast.makeText(context, ""+result_msj, Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER, 0, 0);
+                                toast.show();
+                            }
+
+                            progressDialog.dismiss();
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        progressDialog.dismiss();
+
                     }
-
-                    progressDialog.dismiss();
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                progressDialog.dismiss();
-
-            }
-        }, new Response.ErrorListener() {
+                }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
