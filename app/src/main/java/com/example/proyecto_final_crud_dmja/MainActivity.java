@@ -470,7 +470,7 @@ public class MainActivity extends AppCompatActivity{
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null)
             if (result.getContents() != null){
-                et_codigo.setText("El código es: \n"+result.getContents());
+                et_codigo.setText(result.getContents());
             }else {
                 et_codigo.setText("Error al escanear");
             }
