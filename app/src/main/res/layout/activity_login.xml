@@ -136,7 +136,7 @@
                 android:layout_height="40dp"
                 android:layout_below="@+id/linlay1"
                 android:layout_marginTop="50dp"
-                android:layout_marginLeft="85dp"
+                android:layout_marginLeft="55dp"
                 android:background="@drawable/button"
                 android:fontFamily="sans-serif-medium"
                 android:paddingLeft="70dp"
@@ -161,17 +161,7 @@
         android:layout_marginRight="20dp"
         android:visibility="visible">
         <!--android:layout_alignParentBottom="true"-->
-        <Button
-            android:id="@+id/btnRegistrar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:fontFamily="sans-serif"
-            android:text="@string/usuario"
-            android:layout_marginLeft="95dp"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:textColor="#020405" />
+
 
     </RelativeLayout>
 
@@ -187,19 +177,7 @@
         android:visibility="visible">
         <!--android:layout_alignParentTop="true"-->
 
-        <Button
-            android:id="@+id/btnOlvidoClave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:fontFamily="sans-serif"
-            android:text="@string/pass"
-            android:textAllCaps="true"
-            android:textStyle="bold"
-            android:textColor="#020405"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            />
+
 
     </RelativeLayout>
 

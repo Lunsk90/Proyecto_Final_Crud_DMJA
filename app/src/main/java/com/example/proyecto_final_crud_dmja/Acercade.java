@@ -28,7 +28,7 @@ public class Acercade extends AppCompatActivity {
             tvNombre1.setText("Nombres: Diana Judith Berríos Guardado");
             tvNombre2.setText("Nombres: José Alcides Ramírez Minero");
             tvNombre3.setText("Nombres: Marlyn Sofía Campos Orellana");
-            tvNombre4.setText("Nombres:  Julissa Yaneth Morales Rivas");
+            tvNombre4.setText("Nombres:  Julisa Yaneth Morales Rivas");
 
             tvCarrera.setText("Carrera : Tec. en Ingeniería de Sistemas Informáticos.");
 
